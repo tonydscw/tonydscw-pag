@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Personal - Músico y Cantante</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 3em;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #f0f0f0;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h2 {
+            color: #4a5568;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            margin: 20px auto;
+            display: block;
+        }
+
+        .music-img {
+            width: 100%;
+            max-width: 400px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f7fafc;
+        }
+
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .form-container {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #f0f0f0;
+        }
+
+        input[type="text"], 
+        input[type="email"], 
+        textarea, 
+        select {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            background: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+        }
+
+        input:focus, 
+        textarea:focus, 
+        select:focus {
+            outline: none;
+            background: white;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        select[multiple] {
+            height: 120px;
+        }
+
+        button {
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .music-note {
+            font-size: 2em;
+            color: #667eea;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Mi Mundo Musical 🎵</h1>
+            <p class="subtitle">Cantante • Guitarrista • Trabajador • Soñador</p>
+        </header>
+
+        <section class="section">
+            <h2>Sobre Mí</h2>
+            <img src="images.jpg" alt="Foto de perfil" class="profile-img">
+            
+            <p>¡Hola! Soy un joven de 26 años apasionado por la vida y especialmente por la música. Actualmente soltero y sin hijos, dedico gran parte de mi tiempo a desarrollar mi carrera como cantante y a perfeccionar mis habilidades con la guitarra.</p>
+            
+            <p>La música no es solo mi hobby, es mi forma de expresar emociones, contar historias y conectar con las personas. Cada acorde que toco y cada nota que canto lleva un pedazo de mi alma. Creo firmemente que la música tiene el poder de sanar, inspirar y unir a las personas sin importar sus diferencias.</p>
+            
+            <p>Además de mi pasión musical, soy una persona trabajadora que valora la responsabilidad y el esfuerzo. Mantengo un equilibrio entre mi vida profesional y mi arte, ya que ambos aspectos son importantes para mi crecimiento personal y económico.</p>
+        </section>
+
+        <section class="section">
+            <h2>Mi Información Personal</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Detalle</th>
+                        <th>Estado/Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Edad</strong></td>
+                        <td>26 años</td>
+                        <td>En la mejor etapa de mi vida</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Estado Civil</strong></td>
+                        <td>Soltero</td>
+                        <td>Enfocado en mi crecimiento personal</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hijos</strong></td>
+                        <td>Ninguno</td>
+                        <td>Esperando el momento adecuado</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ocupación</strong></td>
+                        <td>Trabajador/Cantante</td>
+                        <td>Combinando estabilidad con pasión</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Instrumento Principal</strong></td>
+                        <td>Guitarra</td>
+                        <td>Mi compañera de toda la vida</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <div class="skills-grid">
+            <section class="section">
+                <h2>🎸 Mis Pasiones Musicales</h2>
+                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=250&fit=crop" alt="Guitarra acústica" class="music-img">
+                
+                <h3>Géneros que interpreto:</h3>
+                <ul>
+                    <li>Rock Clásico y Moderno</li>
+                    <li>Baladas Románticas</li>
+                    <li>Folk y Acústico</li>
+                    <li>Pop Latino</li>
+                    <li>Blues y Jazz</li>
+                </ul>
+
+                <h3>Habilidades musicales:</h3>
+                <ol>
+                    <li>Interpretación vocal con técnica lírica</li>
+                    <li>Ejecución de guitarra acústica y eléctrica</li>
+                    <li>Composición de letras y melodías</li>
+                    <li>Arreglos musicales básicos</li>
+                    <li>Improvisación y jam sessions</li>
+                </ol>
+            </section>
+
+            <section class="section">
+                <h2>💼 Mi Lado Profesional</h2>
+                <p>Aunque la música es mi gran pasión, también mantengo una carrera profesional sólida que me brinda estabilidad económica y me permite seguir invirtiendo en mi desarrollo artístico.</p>
+
+                <h3>Características profesionales:</h3>
+                <ul>
+                    <li>Responsable y puntual</li>
+                    <li>Trabajo en equipo</li>
+                    <li>Adaptabilidad a nuevos retos</li>
+                    <li>Gestión eficiente del tiempo</li>
+                    <li>Comunicación efectiva</li>
+                </ul>
+
+                <h3>Valores que me definen:</h3>
+                <ol>
+                    <li>Honestidad en todas mis relaciones</li>
+                    <li>Perseverancia ante las dificultades</li>
+                    <li>Respeto hacia los demás</li>
+                    <li>Compromiso con mis objetivos</li>
+                    <li>Humildad para seguir aprendiendo</li>
+                </ol>
+            </section>
+        </div>
+
+        <section class="section">
+            <h2>🎵 Contacto y Colaboraciones</h2>
+            <div class="form-container">
+                <h3 style="color: white; margin-bottom: 20px;">¿Quieres colaborar conmigo o conocer más sobre mi música?</h3>
+                <p style="margin-bottom: 30px;">Completa este formulario y me pondré en contacto contigo pronto. ¡Siempre estoy abierto a nuevas oportunidades musicales!</p>
+                
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono de Contacto:</label>
+                        <input type="text" id="telefono" name="telefono" placeholder="Número de teléfono">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interes">¿Qué te interesa? (Selección múltiple):</label>
+                        <select id="interes" name="interes" multiple required>
+                            <option value="colaboracion">Colaboración Musical</option>
+                            <option value="contratacion">Contratación para Eventos</option>
+                            <option value="clases">Clases de Guitarra</option>
+                            <option value="composicion">Composición de Canciones</option>
+                            <option value="grabacion">Sesiones de Grabación</option>
+                            <option value="banda">Formar una Banda</option>
+                            <option value="amistad">Simplemente Conocernos</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="generos">Géneros Musicales de tu Interés (Selección múltiple):</label>
+                        <select id="generos" name="generos" multiple>
+                            <option value="rock">Rock</option>
+                            <option value="pop">Pop</option>
+                            <option value="balada">Baladas</option>
+                            <option value="folk">Folk</option>
+                            <option value="blues">Blues</option>
+                            <option value="jazz">Jazz</option>
+                            <option value="reggae">Reggae</option>
+                            <option value="country">Country</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Cuéntame más sobre tu propuesta o interés:</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describe aquí tu idea, propuesta o simplemente cuéntame algo sobre ti..."></textarea>
+                    </div>
+
+                    <button type="submit">🎵 Enviar Mensaje 🎵</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="section" style="text-align: center;">
+            <h2>🌟 Mi Filosofía de Vida</h2>
+            <p style="font-size: 1.3em; font-style: italic; color: #667eea;">
+                "La música es el lenguaje universal que conecta corazones. Cada día es una nueva oportunidad para crear, aprender y compartir mi arte con el mundo."
+            </p>
+            <div style="margin: 30px 0;">
+                <span class="music-note">♫</span>
+                <span class="music-note">♪</span>
+                <span class="music-note">♫</span>
+                <span class="music-note">♪</span>
+                <span class="music-note">♫</span>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Efecto de animación suave al hacer scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const windowHeight = window.innerHeight;
+                const scrollTop = window.pageYOffset;
+
+                if (scrollTop > sectionTop - windowHeight + 100) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Inicializar la animación
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(50px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+
+            // Mostrar la primera sección inmediatamente
+            if (sections.length > 0) {
+                sections[0].style.opacity = '1';
+                sections[0].style.transform = 'translateY(0)';
+            }
+        });
+
+        // Validación del formulario
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const interes = document.getElementById('interes').selectedOptions;
+            
+            if (nombre && email && interes.length > 0) {
+                alert('¡Gracias por tu mensaje! Me pondré en contacto contigo pronto. 🎵');
+            } else {
+                alert('Por favor completa todos los campos obligatorios.');
+            }
+        });
+    </script>
+</body>
+</html>
